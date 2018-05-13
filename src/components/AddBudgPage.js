@@ -1,9 +1,18 @@
 import React from 'react';
+import BudgForm from './BudgForm';
+import { connect } from 'react-redux';
+import { addExpense } from '../actions/expenses';
 
-const AddBudgPage = () => (
+const AddBudgPage = (props) => (
 	<div>
-		This is from my add budg page.
+		<h1>Add Budg</h1>
+		<BudgForm 
+			onSubmit={(expense) => {
+				props.dispatch(addExpense(expense));
+				props.history.push('/');
+			}}
+		/>
 	</div>
 );
 
-export default AddBudgPage;
+export default connect()(AddBudgPage);

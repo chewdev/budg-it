@@ -17,14 +17,10 @@ store.subscribe(() => {
     console.log(visibleExpenses);
 });
 
-const expenseOne = store.dispatch(addExpense({ description: 'Water Bill', amount: 100, createdAt: 110 }));
+const expenseOne = store.dispatch(addExpense({ description: 'Water Bill', amount: 100, createdAt: 90 }));
 const expenseTwo = store.dispatch(addExpense({ description: 'Gas Bill', amount: 50, createdAt: 100 }));
-
-store.dispatch(setTextFilter('bill'));
-setTimeout(() => {
-		store.dispatch(setTextFilter('water'));
-	}, 1000
-);
+const expenseThree = store.dispatch(addExpense({ description: 'TV Bill', amount: 200, createdAt: 2000 }));
+const expenseFour = store.dispatch(addExpense({ description: 'Rent', amount: 5000, createdAt: 5000 }));
 
 const jsx = (
 	<Provider store={store}>
