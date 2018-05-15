@@ -5,7 +5,11 @@ import selectExpenses from '../selectors/expenses'
 
 const ExpenseList = (props) => (
     <div>
+        {console.log(props)}
         <h1>ExpenseList</h1>
+        <h3>Total: {props.expenses ? props.expenses.reduce((acc, expense) => {
+            return acc + expense.amount;
+        },0) : 0}</h3>
         {props.expenses.map((expense) => (<ExpenseListItem key={expense.id} {...expense}/>))}
     </div>
 );

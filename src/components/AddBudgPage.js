@@ -5,6 +5,7 @@ import { addExpense } from '../actions/expenses';
 
 const AddBudgPage = (props) => (
 	<div>
+		{console.log(props)}
 		<h1>Add Budg</h1>
 		<BudgForm 
 			onSubmit={(expense) => {
