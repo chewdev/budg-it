@@ -5,9 +5,9 @@ import { addExpense } from '../actions/expenses';
 
 const AddBudgPage = (props) => (
 	<div>
-		{console.log(props)}
-		<h1>Add Budg</h1>
+		<h1>Add Expense</h1>
 		<BudgForm 
+			title="Expense"
 			onSubmit={(expense) => {
 				props.dispatch(addExpense(expense));
 				props.history.push('/');

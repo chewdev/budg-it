@@ -11,10 +11,10 @@ export default class BudgForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            description: props.expense ? props.expense.description : '',
-            note: props.expense ? props.expense.note : '',
-            amount: props.expense ? (props.expense.amount / 100).toString() : '',
-            createdAt: props.expense ? moment(props.expense.createdAt) : moment(),
+            description: props.expense ? props.expense.description : props.income ? props.income.description : '',
+            note: props.expense ? props.expense.note : props.income ? props.income.note : '',
+            amount: props.expense ? (props.expense.amount / 100).toString() : props.income ? (props.income.amount / 100).toString() : '',
+            createdAt: props.expense ? moment(props.expense.createdAt) : props.income ? moment(props.income.createdAt) : moment(),
             calendarFocused: false,
             error: ''
         };
@@ -89,7 +89,7 @@ export default class BudgForm extends React.Component {
                         onChange={this.onNoteChange}
                     >
                     </textarea>
-                    <button>Add Budg</button>
+                    <button>Add {this.props.title}</button>
                 </form>
             </div>
         )
