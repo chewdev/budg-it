@@ -6,16 +6,20 @@ import selectIncome from '../selectors/income';
 import numeral from 'numeral';
 import selectExpensesTotal from '../selectors/total'
 
-const ExpenseList = (props) => (
+export const ExpenseList = (props) => (
     <div>
         <h3>
             Budg-It: {numeral(selectExpensesTotal(props.expenses, props.income)).format('$0,0.00')}
         </h3>
-        <h1>ExpenseList</h1>
+        <h1>Expenses</h1>
         <h3>
             Total Expenses: {numeral(selectExpensesTotal(props.expenses)).format('$0,0.00')}
         </h3>
-        {props.expenses.map((expense) => (<ExpenseListItem key={expense.id} {...expense}/>))}
+        {!props.expenses.length ? (
+                <p>No expenses match your query. Add new expenses or change your query to view existing expenses</p>
+            ) : (
+                props.expenses.map((expense) => (<ExpenseListItem key={expense.id} {...expense}/>)) 
+            ) }
     </div>
 );
 
