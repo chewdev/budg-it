@@ -2,17 +2,9 @@
 
 exports[`should render ExpenseList with empty expenses message 1`] = `
 <div>
-  <h3>
-    Budg-It: 
-    $0.00
-  </h3>
   <h1>
     Expenses
   </h1>
-  <h3>
-    Total Expenses: 
-    $0.00
-  </h3>
   <p>
     No expenses match your query. Add new expenses or change your query to view existing expenses
   </p>
@@ -21,17 +13,9 @@ exports[`should render ExpenseList with empty expenses message 1`] = `
 
 exports[`should render ExpenseList with expenses 1`] = `
 <div>
-  <h3>
-    Budg-It: 
-    $124.85
-  </h3>
   <h1>
     Expenses
   </h1>
-  <h3>
-    Total Expenses: 
-    $124.85
-  </h3>
   <ExpenseListItem
     amount={195}
     createdAt={0}

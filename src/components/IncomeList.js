@@ -2,15 +2,10 @@ import React from 'react';
 import { connect } from 'react-redux';
 import IncomeListItem from './IncomeListItem';
 import selectIncome from '../selectors/income';
-import numeral from 'numeral';
-import selectIncomeTotal from '../selectors/total'
 
 const IncomeList = (props) => (
     <div>
-        <h1>Income List</h1>
-        <h3>
-            Total: {numeral(selectIncomeTotal(props.income)).format('$0,0.00')}
-        </h3>
+        <h1>Income</h1>
         {props.income.map((income) => (<IncomeListItem key={income.id} {...income}/>))}
     </div>
 );
