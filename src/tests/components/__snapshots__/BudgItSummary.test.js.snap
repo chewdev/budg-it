@@ -1,0 +1,101 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should correctly render BudgItSummary with expenses and income 1`] = `
+<div>
+  <h2>
+    Budg-It: 
+    $1,019.05
+  </h2>
+  <h3>
+    Viewing 
+    3
+     
+    expenses 
+    totalling: 
+    $124.85
+  </h3>
+  <h3>
+    Viewing 
+    3
+     
+    incomes 
+    totalling: 
+    $1,143.90
+  </h3>
+</div>
+`;
+
+exports[`should correctly render BudgItSummary with expenses and no income 1`] = `
+<div>
+  <h2>
+    Budg-It: 
+    -$124.85
+  </h2>
+  <h3>
+    Viewing 
+    3
+     
+    expenses 
+    totalling: 
+    $124.85
+  </h3>
+  <h3>
+    Viewing 
+    0
+     
+    incomes 
+    totalling: 
+    $0.00
+  </h3>
+</div>
+`;
+
+exports[`should correctly render BudgItSummary with income and no expenses 1`] = `
+<div>
+  <h2>
+    Budg-It: 
+    $1,143.90
+  </h2>
+  <h3>
+    Viewing 
+    0
+     
+    expenses 
+    totalling: 
+    $0.00
+  </h3>
+  <h3>
+    Viewing 
+    3
+     
+    incomes 
+    totalling: 
+    $1,143.90
+  </h3>
+</div>
+`;
+
+exports[`should correctly render BudgItSummary with no expenses and no income 1`] = `
+<div>
+  <h2>
+    Budg-It: 
+    $0.00
+  </h2>
+  <h3>
+    Viewing 
+    0
+     
+    expenses 
+    totalling: 
+    $0.00
+  </h3>
+  <h3>
+    Viewing 
+    0
+     
+    incomes 
+    totalling: 
+    $0.00
+  </h3>
+</div>
+`;
