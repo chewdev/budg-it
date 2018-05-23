@@ -1,12 +1,12 @@
 import React from 'react';
 import BudgForm from './BudgForm';
 import { connect } from 'react-redux';
-import { addExpense } from '../actions/expenses';
+import { startAddExpense } from '../actions/expenses';
 
 export class AddBudgPage extends React.Component {
 	onSubmit= (expense) => {
 		// props.dispatch(addExpense(expense));
-		this.props.addExpense(expense);
+		this.props.startAddExpense(expense);
 		this.props.history.push('/');
 	};
 	render() {
@@ -22,7 +22,7 @@ export class AddBudgPage extends React.Component {
 	}
 }
 
-const mapDispatchToProps = (dispatch) => ({addExpense: (expense) => dispatch(addExpense(expense))});
+const mapDispatchToProps = (dispatch) => ({startAddExpense: (expense) => dispatch(startAddExpense(expense))});
 	
 
 export default connect(undefined, mapDispatchToProps)(AddBudgPage);
