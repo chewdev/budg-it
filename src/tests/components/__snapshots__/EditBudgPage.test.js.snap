@@ -3,6 +3,7 @@
 exports[`should render EditBudgPage correctly 1`] = `
 <div>
   <BudgForm
+    buttonText="Edit Expense"
     expense={
       Object {
         "amount": 195,

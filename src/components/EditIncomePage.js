@@ -1,29 +1,33 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import BudgForm from './BudgForm';
-import { editIncome, removeIncome } from '../actions/income';
+import { startEditIncome, startRemoveIncome } from '../actions/income';
 
-const EditIncomePage = (props) => {
-	return (
-	<div>
-		<BudgForm
-            buttonText="Edit Income"
-			income={props.income}
-			onSubmit={(income) => {
-				props.dispatch(editIncome(props.income.id, income));
-				props.history.push('/');
-			}}
-		/>
-		<button onClick={() => {
-			props.dispatch(removeIncome({ id: props.income.id }));
-			props.history.push('/');
-		}}
-		>
-			Remove
-		</button>
-	</div>
-	);
-};
+export class EditIncomePage extends React.Component { 
+	onSubmit = (income) => {
+		this.props.startEditIncome(this.props.income.id, income);
+		this.props.history.push('/');
+	};
+	onRemove = () => {
+		this.props.startRemoveIncome({ id: this.props.income.id });
+		this.props.history.push('/');
+	}
+	render() {
+		return (
+			<div>
+				<BudgForm
+					buttonText="Edit Income"
+					income={this.props.income}
+					onSubmit={this.onSubmit}
+				/>
+				<button onClick={this.onRemove}
+				>
+					Remove
+				</button>
+			</div>
+			);
+	}
+}
 
 const mapStateToProps = (state, props) => {
 	return {
@@ -31,4 +35,9 @@ const mapStateToProps = (state, props) => {
 	};
 };
 
-export default connect(mapStateToProps)(EditIncomePage);
+const mapDispatchToProps = (dispatch, props) => ({
+	startEditIncome: (id, income) => dispatch(startEditIncome(id, income)),
+	startRemoveIncome: (data) => dispatch(startRemoveIncome(data))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(EditIncomePage);

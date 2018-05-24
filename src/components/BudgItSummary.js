@@ -15,11 +15,11 @@ export const BudgItSummary = (props) => {
         </h2>
         <h3>
             Viewing {props.expenses.length} {expenseWord}
-            totalling: {numeral(selectTotal(props.expenses)).format('$0,0.00')}
+            totaling: {numeral(selectTotal(props.expenses)).format('$0,0.00')}
         </h3>
         <h3>
             Viewing {props.income.length} {incomeWord}
-            totalling: {numeral(selectTotal(props.income)).format('$0,0.00')}
+            totaling: {numeral(selectTotal(props.income)).format('$0,0.00')}
         </h3>
     </div>
 )};

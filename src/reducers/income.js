@@ -19,6 +19,8 @@ export default (state = incomeReducerDefaultState, action) => {
                     return income;
                 };
             });
+        case 'SET_INCOMES':
+            return action.incomes;
         default:
             return state;
     }

@@ -1,23 +1,30 @@
 import uuid from 'uuid';
+import database from '../firebase/firebase';
 
 // ADD_INCOME
-export const addIncome = (
-    {  
-        description = '',
-        note = '', 
-        amount = 0, 
-        createdAt = 0 
-    } = {}
-) => ({
+export const addIncome = (income) => ({
     type: 'ADD_INCOME',
-    income: {
-        id: uuid(),
-        description,
-        note,
-        amount,
-        createdAt
-    }
+    income
 });
+
+export const startAddIncome = (incomeData = {}) => {
+    return (dispatch) => {
+        const {
+            description = '',
+            note = '', 
+            amount = 0, 
+            createdAt = 0 
+        } = incomeData;
+        const income = { description, note, amount, createdAt };
+
+        return database.ref('incomes').push(income).then((ref) => {
+            dispatch(addIncome({
+                id: ref.key,
+                ...income
+            }));
+        });
+    };
+};
 
 // REMOVE_INCOME
 export const removeIncome = (
@@ -27,9 +34,52 @@ export const removeIncome = (
     id
 });
 
+export const startRemoveIncome = ({ id } = {}) => {
+    return (dispatch) => {
+        return database.ref(`incomes/${id}`).remove().then(() => {
+            dispatch(removeIncome({
+                id
+            }));
+        });
+    };
+};
+
 // EDIT_INCOME
 export const editIncome = ( id,  updates ) => ({
     type: 'EDIT_INCOME',
     id,
     updates
 });
+
+export const startEditIncome = (id, updates) => {
+    return (dispatch) => {
+        return database.ref(`incomes/${id}`).update(updates).then(() => {
+            dispatch(editIncome(id, updates));
+        });
+    };
+};
+
+// SET_INCOMES
+export const setIncomes = (incomes) => ({
+    type: 'SET_INCOMES',
+    incomes
+});
+
+export const startSetIncomes = () => {
+    return (dispatch) => {
+        return database.ref('incomes')
+            .once('value')
+            .then((snapshot) => {
+                const incomes = [];
+    
+                snapshot.forEach((childSnapshot) => {
+                    incomes.push({
+                        id: childSnapshot.key,
+                        ...childSnapshot.val()
+                    });
+                });  
+                dispatch(setIncomes(incomes));
+        });
+        
+    }
+}

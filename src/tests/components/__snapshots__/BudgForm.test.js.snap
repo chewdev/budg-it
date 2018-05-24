@@ -99,9 +99,7 @@ exports[`should render BudgForm correctly 1`] = `
       placeholder="Add a note for your budg (optional)"
       value=""
     />
-    <button>
-      Add 
-    </button>
+    <button />
   </form>
 </div>
 `;
@@ -205,9 +203,7 @@ exports[`should render BudgForm with expense data 1`] = `
       placeholder="Add a note for your budg (optional)"
       value=""
     />
-    <button>
-      Add 
-    </button>
+    <button />
   </form>
 </div>
 `;
@@ -311,9 +307,7 @@ exports[`should render error for invalid form submission 1`] = `
       placeholder="Add a note for your budg (optional)"
       value=""
     />
-    <button>
-      Add 
-    </button>
+    <button />
   </form>
 </div>
 `;
@@ -420,9 +414,7 @@ exports[`should render error for invalid form submission 2`] = `
       placeholder="Add a note for your budg (optional)"
       value=""
     />
-    <button>
-      Add 
-    </button>
+    <button />
   </form>
 </div>
 `;

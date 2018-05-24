@@ -6,8 +6,8 @@ exports[`should render AddBudgPage correctly 1`] = `
     Add Expense
   </h1>
   <BudgForm
+    buttonText="Add Expense"
     onSubmit={[Function]}
-    title="Expense"
   />
 </div>
 `;

@@ -11,7 +11,7 @@ exports[`should correctly render BudgItSummary with expenses and income 1`] = `
     3
      
     expenses 
-    totalling: 
+    totaling: 
     $124.85
   </h3>
   <h3>
@@ -19,7 +19,7 @@ exports[`should correctly render BudgItSummary with expenses and income 1`] = `
     3
      
     incomes 
-    totalling: 
+    totaling: 
     $1,143.90
   </h3>
 </div>
@@ -36,7 +36,7 @@ exports[`should correctly render BudgItSummary with expenses and no income 1`] =
     3
      
     expenses 
-    totalling: 
+    totaling: 
     $124.85
   </h3>
   <h3>
@@ -44,7 +44,7 @@ exports[`should correctly render BudgItSummary with expenses and no income 1`] =
     0
      
     incomes 
-    totalling: 
+    totaling: 
     $0.00
   </h3>
 </div>
@@ -61,7 +61,7 @@ exports[`should correctly render BudgItSummary with income and no expenses 1`] =
     0
      
     expenses 
-    totalling: 
+    totaling: 
     $0.00
   </h3>
   <h3>
@@ -69,7 +69,7 @@ exports[`should correctly render BudgItSummary with income and no expenses 1`] =
     3
      
     incomes 
-    totalling: 
+    totaling: 
     $1,143.90
   </h3>
 </div>
@@ -86,7 +86,7 @@ exports[`should correctly render BudgItSummary with no expenses and no income 1`
     0
      
     expenses 
-    totalling: 
+    totaling: 
     $0.00
   </h3>
   <h3>
@@ -94,7 +94,7 @@ exports[`should correctly render BudgItSummary with no expenses and no income 1`
     0
      
     incomes 
-    totalling: 
+    totaling: 
     $0.00
   </h3>
 </div>
