@@ -8,13 +8,15 @@ import EditIncomePage from '../components/EditIncomePage';
 import HelpPage from '../components/HelpPage';
 import NotFoundPage from '../components/NotFoundPage';
 import BudgItDashboardPage from '../components/BudgItDashboardPage';
+import LoginPage from '../components/LoginPage';
 
 const AppRouter = () => (
     <BrowserRouter>
 		<div>
 			<Header />
 			<Switch>
-				<Route path="/" component={BudgItDashboardPage} exact={true} />
+				<Route path="/" component={LoginPage} exact={true} />
+				<Route path="/dashboard" component={BudgItDashboardPage} />
 				<Route path="/create/expense" component={AddBudgPage} />
 				<Route path="/create/income" component={AddIncomePage} />
 				<Route path="/edit/expense/:id" component={EditBudgPage} />
