@@ -14,7 +14,7 @@ export class AddBudgPage extends React.Component {
 			<div>
 				<h1>Add Expense</h1>
 				<BudgForm 
-					title="Expense"
+					buttonText="Add Expense"
 					onSubmit={this.onSubmit}
 				/>
 			</div>

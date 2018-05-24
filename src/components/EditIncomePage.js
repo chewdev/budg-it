@@ -7,7 +7,7 @@ const EditIncomePage = (props) => {
 	return (
 	<div>
 		<BudgForm
-            title="Income"
+            buttonText="Edit Income"
 			income={props.income}
 			onSubmit={(income) => {
 				props.dispatch(editIncome(props.income.id, income));

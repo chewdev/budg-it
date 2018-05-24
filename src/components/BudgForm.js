@@ -84,7 +84,7 @@ export default class BudgForm extends React.Component {
                         onChange={this.onNoteChange}
                     >
                     </textarea>
-                    <button>Add {this.props.title}</button>
+                    <button>{this.props.buttonText}</button>
                 </form>
             </div>
         )

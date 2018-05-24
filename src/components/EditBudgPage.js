@@ -16,6 +16,7 @@ export class EditBudgPage extends React.Component {
 		return (
 			<div>
 				<BudgForm
+					buttonText={"Edit Expense"}
 					expense={this.props.expense}
 					onSubmit={this.onSubmit}
 				/>

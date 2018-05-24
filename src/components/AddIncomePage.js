@@ -7,7 +7,7 @@ const AddIncomePage = (props) => (
 	<div>
 		<h1>Add Income</h1>
         <BudgForm 
-            title="Income"
+            buttonText="Add Income"
 			onSubmit={(income) => {
 				props.dispatch(addIncome(income));
 				props.history.push('/');
