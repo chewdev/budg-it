@@ -48,6 +48,7 @@
     &--income {
         background: $light-green;
         border: 1px solid darken($light-green, 10%);
+        border-top: none;
 
         &:hover {
             background: darken($light-green, 5%);
