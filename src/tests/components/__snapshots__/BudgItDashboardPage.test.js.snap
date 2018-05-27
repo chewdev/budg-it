@@ -2,8 +2,8 @@
 
 exports[`should properly render the BudgItDashboardPage component 1`] = `
 <div>
-  <Connect(ExpenseListFilters) />
   <Connect(BudgItSummary) />
+  <Connect(ExpenseListFilters) />
   <Connect(ExpenseList) />
   <Connect(IncomeList) />
 </div>

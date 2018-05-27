@@ -1,7 +1,9 @@
 .page-header {
+    background: $light-green;
     color: $main-brown;
     padding: $m-size 0;
     font-weight: 300;
+    margin-bottom: $m-size;
 
     &__expense-total {
         color: red;
@@ -30,7 +32,7 @@
     }
 
     &__red {
-        color: red;
+        color: $main-red;
     }
 
     &__sub-summary {
@@ -55,4 +57,16 @@
         padding: 0 $s-size;
         text-align: center;
     }
+
+    &__title {
+        font-weight: 300;
+    }
+
+    &--bg-red {
+        background: $light-red;
+    }
+}
+
+.red {
+    color: $main-red;
 }

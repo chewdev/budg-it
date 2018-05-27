@@ -32,13 +32,15 @@ export class ExpenseListFilters extends React.Component {
                         <div className="input-filters__item">
                             <input 
                                 type="text"
+                                className="text-input"
                                 placeholder="Search descriptions" 
                                 value={this.props.filters.text} 
                                 onChange={this.onTextChange}
                             />
                         </div>
                         <div className="input-filters__item">
-                            <select 
+                            <select
+                                className="select" 
                                 value={this.props.filters.sortBy} 
                                 onChange={this.onSortChange}
                             >
@@ -48,6 +50,7 @@ export class ExpenseListFilters extends React.Component {
                         </div>
                         <div className="input-filters__item">
                             <DateRangePicker
+                                className="date-picker"
                                 startDate={this.props.filters.startDate}
                                 endDate={this.props.filters.endDate}
                                 onDatesChange={this.onDatesChange}

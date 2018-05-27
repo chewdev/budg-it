@@ -1,21 +1,61 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`should render ExpenseList with empty expenses message 1`] = `
-<div>
-  <h1>
-    Expenses
-  </h1>
-  <p>
-    No expenses match your query. Add new expenses or change your query to view existing expenses
-  </p>
+<div
+  className="content-container"
+>
+  <div
+    className="list-header"
+  >
+    <div
+      className="mobile-visible"
+    >
+      Expenses
+    </div>
+    <div
+      className="large-screen-visible"
+    >
+      Expense
+    </div>
+    <div
+      className="large-screen-visible"
+    >
+      Amount
+    </div>
+  </div>
+  <div
+    className="list-item list-item--message"
+  >
+    <span>
+      No expenses match query
+    </span>
+  </div>
 </div>
 `;
 
 exports[`should render ExpenseList with expenses 1`] = `
-<div>
-  <h1>
-    Expenses
-  </h1>
+<div
+  className="content-container"
+>
+  <div
+    className="list-header"
+  >
+    <div
+      className="mobile-visible"
+    >
+      Expenses
+    </div>
+    <div
+      className="large-screen-visible"
+    >
+      Expense
+    </div>
+    <div
+      className="large-screen-visible"
+    >
+      Amount
+    </div>
+  </div>
   <ExpenseListItem
     amount={195}
     createdAt={0}

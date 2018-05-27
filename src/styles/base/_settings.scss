@@ -1,8 +1,11 @@
 // Colors
-$main-green: rgb(9, 185, 80);
+$main-green: #09b950;
 $main-brown: #673C35;
 $main-black: #171717;
 $main-lightgray: #f7f7f7;
+$main-red: #ee2222;
+$light-green: lighten($main-green, 60%);
+$light-red: lighten($main-red, 45%);
 
 //Spacing/Sizes
 $s-size: 1.2rem;

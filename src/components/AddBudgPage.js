@@ -12,11 +12,17 @@ export class AddBudgPage extends React.Component {
 	render() {
 		return (
 			<div>
-				<h1>Add Expense</h1>
-				<BudgForm 
-					buttonText="Add Expense"
-					onSubmit={this.onSubmit}
-				/>
+				<div className="page-header page-header--bg-red">
+					<div className="content-container">
+						<h2 className="page-header__title page-header__red">Add Expense</h2>
+					</div>
+				</div>
+				<div className="content-container">
+					<BudgForm 
+						buttonText="Add Expense"
+						onSubmit={this.onSubmit}
+					/>
+				</div>
 			</div>
 		);
 	}

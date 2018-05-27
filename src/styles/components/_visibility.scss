@@ -1,0 +1,11 @@
+.mobile-visible {
+    @media (min-width: $desktop-breakpoint) {
+        display: none;
+    }
+}
+
+.large-screen-visible {
+    @media (max-width: $desktop-breakpoint - .01rem) {
+        display: none;
+    }
+}

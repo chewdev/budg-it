@@ -1,0 +1,13 @@
+.loader {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: $main-green;
+
+    &__gif {
+        height: 15rem;
+        width: 15rem;
+    }
+}

@@ -1,101 +1,317 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`should correctly render BudgItSummary with expenses and income 1`] = `
-<div>
-  <h2>
-    Budg-It: 
-    $1,019.05
-  </h2>
-  <h3>
-    Viewing 
-    3
-     
-    expenses 
-    totaling: 
-    $124.85
-  </h3>
-  <h3>
-    Viewing 
-    3
-     
-    incomes 
-    totaling: 
-    $1,143.90
-  </h3>
+<div
+  className="page-header"
+>
+  <div
+    className="content-container"
+  >
+    <h2
+      className="page-header__budgit"
+    >
+      Budget: 
+      <span
+        className="page-header__main-green"
+      >
+        $1,019.05
+      </span>
+    </h2>
+    <div
+      className="page-header__sub-summary"
+    >
+      <h3
+        className="page-header__expenses"
+      >
+        Viewing 
+        <span
+          className="page-header__expense-number"
+        >
+          3
+        </span>
+         
+        expenses 
+        totaling: 
+        <span
+          className="page-header__expense-total"
+        >
+          $124.85
+        </span>
+      </h3>
+      <h3
+        className="page-header__incomes"
+      >
+        Viewing 
+        <span
+          className="page-header__income-number"
+        >
+          3
+        </span>
+         
+        incomes 
+        totaling: 
+        <span
+          className="page-header__income-total"
+        >
+          $1,143.90
+        </span>
+      </h3>
+    </div>
+    <div
+      className="page-header__sub-summary"
+    >
+      <Link
+        className="btn btn--expense"
+        replace={false}
+        to="/create/expense"
+      >
+        Add Expense
+      </Link>
+      <Link
+        className="btn btn--income"
+        replace={false}
+        to="/create/income"
+      >
+        Add Income
+      </Link>
+    </div>
+  </div>
 </div>
 `;
 
 exports[`should correctly render BudgItSummary with expenses and no income 1`] = `
-<div>
-  <h2>
-    Budg-It: 
-    -$124.85
-  </h2>
-  <h3>
-    Viewing 
-    3
-     
-    expenses 
-    totaling: 
-    $124.85
-  </h3>
-  <h3>
-    Viewing 
-    0
-     
-    incomes 
-    totaling: 
-    $0.00
-  </h3>
+<div
+  className="page-header--bg-red"
+>
+  <div
+    className="content-container"
+  >
+    <h2
+      className="page-header__budgit"
+    >
+      Budget: 
+      <span
+        className="page-header__red"
+      >
+        -$124.85
+      </span>
+    </h2>
+    <div
+      className="page-header__sub-summary"
+    >
+      <h3
+        className="page-header__expenses"
+      >
+        Viewing 
+        <span
+          className="page-header__expense-number"
+        >
+          3
+        </span>
+         
+        expenses 
+        totaling: 
+        <span
+          className="page-header__expense-total"
+        >
+          $124.85
+        </span>
+      </h3>
+      <h3
+        className="page-header__incomes"
+      >
+        Viewing 
+        <span
+          className="page-header__income-number"
+        >
+          0
+        </span>
+         
+        incomes 
+        totaling: 
+        <span
+          className="page-header__income-total"
+        >
+          $0.00
+        </span>
+      </h3>
+    </div>
+    <div
+      className="page-header__sub-summary"
+    >
+      <Link
+        className="btn btn--expense"
+        replace={false}
+        to="/create/expense"
+      >
+        Add Expense
+      </Link>
+      <Link
+        className="btn btn--income"
+        replace={false}
+        to="/create/income"
+      >
+        Add Income
+      </Link>
+    </div>
+  </div>
 </div>
 `;
 
 exports[`should correctly render BudgItSummary with income and no expenses 1`] = `
-<div>
-  <h2>
-    Budg-It: 
-    $1,143.90
-  </h2>
-  <h3>
-    Viewing 
-    0
-     
-    expenses 
-    totaling: 
-    $0.00
-  </h3>
-  <h3>
-    Viewing 
-    3
-     
-    incomes 
-    totaling: 
-    $1,143.90
-  </h3>
+<div
+  className="page-header"
+>
+  <div
+    className="content-container"
+  >
+    <h2
+      className="page-header__budgit"
+    >
+      Budget: 
+      <span
+        className="page-header__main-green"
+      >
+        $1,143.90
+      </span>
+    </h2>
+    <div
+      className="page-header__sub-summary"
+    >
+      <h3
+        className="page-header__expenses"
+      >
+        Viewing 
+        <span
+          className="page-header__expense-number"
+        >
+          0
+        </span>
+         
+        expenses 
+        totaling: 
+        <span
+          className="page-header__expense-total"
+        >
+          $0.00
+        </span>
+      </h3>
+      <h3
+        className="page-header__incomes"
+      >
+        Viewing 
+        <span
+          className="page-header__income-number"
+        >
+          3
+        </span>
+         
+        incomes 
+        totaling: 
+        <span
+          className="page-header__income-total"
+        >
+          $1,143.90
+        </span>
+      </h3>
+    </div>
+    <div
+      className="page-header__sub-summary"
+    >
+      <Link
+        className="btn btn--expense"
+        replace={false}
+        to="/create/expense"
+      >
+        Add Expense
+      </Link>
+      <Link
+        className="btn btn--income"
+        replace={false}
+        to="/create/income"
+      >
+        Add Income
+      </Link>
+    </div>
+  </div>
 </div>
 `;
 
 exports[`should correctly render BudgItSummary with no expenses and no income 1`] = `
-<div>
-  <h2>
-    Budg-It: 
-    $0.00
-  </h2>
-  <h3>
-    Viewing 
-    0
-     
-    expenses 
-    totaling: 
-    $0.00
-  </h3>
-  <h3>
-    Viewing 
-    0
-     
-    incomes 
-    totaling: 
-    $0.00
-  </h3>
+<div
+  className="page-header"
+>
+  <div
+    className="content-container"
+  >
+    <h2
+      className="page-header__budgit"
+    >
+      Budget: 
+      <span
+        className="page-header__brown"
+      >
+        $0.00
+      </span>
+    </h2>
+    <div
+      className="page-header__sub-summary"
+    >
+      <h3
+        className="page-header__expenses"
+      >
+        Viewing 
+        <span
+          className="page-header__expense-number"
+        >
+          0
+        </span>
+         
+        expenses 
+        totaling: 
+        <span
+          className="page-header__expense-total"
+        >
+          $0.00
+        </span>
+      </h3>
+      <h3
+        className="page-header__incomes"
+      >
+        Viewing 
+        <span
+          className="page-header__income-number"
+        >
+          0
+        </span>
+         
+        incomes 
+        totaling: 
+        <span
+          className="page-header__income-total"
+        >
+          $0.00
+        </span>
+      </h3>
+    </div>
+    <div
+      className="page-header__sub-summary"
+    >
+      <Link
+        className="btn btn--expense"
+        replace={false}
+        to="/create/expense"
+      >
+        Add Expense
+      </Link>
+      <Link
+        className="btn btn--income"
+        replace={false}
+        to="/create/income"
+      >
+        Add Income
+      </Link>
+    </div>
+  </div>
 </div>
 `;

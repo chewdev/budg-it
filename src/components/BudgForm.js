@@ -54,11 +54,11 @@ export default class BudgForm extends React.Component {
     }
     render() {
         return (
-            <div>
-                {this.state.error && <p>{this.state.error}</p>}
-                <form onSubmit={this.onSubmit}>
+                <form className="form" onSubmit={this.onSubmit}>
+                    {this.state.error && <p className="form__error">{this.state.error}</p>}
                     <input
                         type="text"
+                        className="text-input"
                         placeholder="Description"
                         autoFocus
                         value={this.state.description}
@@ -66,7 +66,9 @@ export default class BudgForm extends React.Component {
                     />
                     <input
                         type="text"
+                        className="text-input"
                         placeholder="Amount"
+                        maxlength="15"
                         value={this.state.amount}
                         onChange={this.onAmountChange}
                     />
@@ -79,14 +81,20 @@ export default class BudgForm extends React.Component {
                         isOutsideRange={() => false }
                     />
                     <textarea
+                        className="textarea"
                         placeholder="Add a note (optional)"
                         value={this.state.note}
                         onChange={this.onNoteChange}
                     >
                     </textarea>
-                    <button>{this.props.buttonText}</button>
+                    <div>
+                        <button 
+                            className={this.props.buttonText.includes("Expense") ? "btn btn--expense" : "btn btn--income"}
+                        >
+                            {this.props.buttonText}
+                        </button>
+                    </div>
                 </form>
-            </div>
         )
     }
 };

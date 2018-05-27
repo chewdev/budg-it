@@ -15,15 +15,22 @@ export class EditIncomePage extends React.Component {
 	render() {
 		return (
 			<div>
-				<BudgForm
-					buttonText="Edit Income"
-					income={this.props.income}
-					onSubmit={this.onSubmit}
-				/>
-				<button onClick={this.onRemove}
-				>
-					Remove
-				</button>
+				<div className="page-header">
+					<div className="content-container">
+						<h2 className="page-header__title page-header__main-green">Edit Income</h2>
+					</div>
+				</div>
+				<div className="content-container">
+					<BudgForm
+						buttonText="Save Income"
+						income={this.props.income}
+						onSubmit={this.onSubmit}
+					/>
+					<button className="btn btn--income btn--remove" onClick={this.onRemove}
+					>
+						Remove Income
+					</button>
+				</div>
 			</div>
 			);
 	}

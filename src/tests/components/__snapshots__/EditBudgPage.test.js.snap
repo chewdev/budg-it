@@ -2,23 +2,41 @@
 
 exports[`should render EditBudgPage correctly 1`] = `
 <div>
-  <BudgForm
-    buttonText="Edit Expense"
-    expense={
-      Object {
-        "amount": 195,
-        "createdAt": 0,
-        "description": "Gum",
-        "id": "1",
-        "note": "",
-      }
-    }
-    onSubmit={[Function]}
-  />
-  <button
-    onClick={[Function]}
+  <div
+    className="page-header page-header--bg-red"
   >
-    Remove
-  </button>
+    <div
+      className="content-container"
+    >
+      <h2
+        className="page-header__title red"
+      >
+        Edit Expense
+      </h2>
+    </div>
+  </div>
+  <div
+    className="content-container"
+  >
+    <BudgForm
+      buttonText="Save Expense"
+      expense={
+        Object {
+          "amount": 195,
+          "createdAt": 0,
+          "description": "Gum",
+          "id": "1",
+          "note": "",
+        }
+      }
+      onSubmit={[Function]}
+    />
+    <button
+      className="btn btn--expense btn--remove"
+      onClick={[Function]}
+    >
+      Remove Expense
+    </button>
+  </div>
 </div>
 `;

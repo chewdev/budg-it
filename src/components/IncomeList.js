@@ -4,17 +4,24 @@ import IncomeListItem from './IncomeListItem';
 import selectIncome from '../selectors/income';
 
 const IncomeList = (props) => (
-    <div>
+    
         <div className="content-container">
-            <h1>Income</h1>
-            {!props.income.length ? (
-                <p>No incomes match your query. Add a new income or change your query to view existing incomes</p>
-                ) : (
-                props.income.map((income) => (<IncomeListItem key={income.id} {...income}/>)) 
-            ) }
-            {/* {props.income.map((income) => (<IncomeListItem key={income.id} {...income}/>))} */}
+            <div className="list-header list-header--income">
+                <div className="mobile-visible">Incomes</div>
+                <div className="large-screen-visible">Income</div>
+                <div className="large-screen-visible">Amount</div>
+            </div>
+            <div className="list-body">
+                {!props.income.length ? (
+                    <div className="list-item list-item--income list-item--message list-item--message--income">
+                        <span>No incomes match query</span>
+                    </div>
+                    ) : (
+                    props.income.map((income) => (<IncomeListItem key={income.id} {...income}/>)) 
+                ) }
+            </div>
         </div>
-    </div>
+    
 );
 
 const mapStateToProps = (state) => {

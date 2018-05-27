@@ -11,7 +11,7 @@ export const BudgItSummary = (props) => {
     const incomeWord = props.income.length === 1 ? 'income ' : 'incomes ';
     const budgitTotal = selectTotal(props.expenses, props.income);
     return (
-    <div className="page-header">
+    <div className={budgitTotal >= 0 ? "page-header" : "page-header--bg-red"}>
         <div className="content-container">
             <h2 className="page-header__budgit">
                 Budget: <span className={budgitTotal === 0 ? "page-header__brown" : budgitTotal > 0 ? "page-header__main-green" : "page-header__red"}>{numeral(budgitTotal).format('$0,0.00')}</span>

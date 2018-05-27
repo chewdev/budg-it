@@ -11,11 +11,17 @@ export class AddIncomePage extends React.Component {
 	 render() { 
 		return (
 			<div>
-				<h1>Add Income</h1>
-				<BudgForm 
-					buttonText="Add Income"
-					onSubmit={this.onSubmit}
-				/>
+				<div className="page-header">
+					<div className="content-container">
+						<h2 className="page-header__title page-header__main-green">Add Income</h2>
+					</div>
+				</div>
+				<div className="content-container">
+					<BudgForm 
+						buttonText="Add Income"
+						onSubmit={this.onSubmit}
+					/>
+				</div>
 			</div>
 		);
 	}

@@ -15,16 +15,24 @@ export class EditBudgPage extends React.Component {
 	render() {
 		return (
 			<div>
-				<BudgForm
-					buttonText={"Edit Expense"}
-					expense={this.props.expense}
-					onSubmit={this.onSubmit}
-				/>
-				<button 
-					onClick={this.onRemove}
-				>
-					Remove
-				</button>
+				<div className="page-header page-header--bg-red">
+					<div className="content-container">
+						<h2 className="page-header__title red">Edit Expense</h2>
+					</div>
+				</div>
+				<div className="content-container">
+					<BudgForm
+						buttonText={"Save Expense"}
+						expense={this.props.expense}
+						onSubmit={this.onSubmit}
+					/>
+					<button
+						className="btn btn--expense btn--remove" 
+						onClick={this.onRemove}
+					>
+						Remove Expense
+					</button>
+				</div>
 			</div>
 			);
 	}

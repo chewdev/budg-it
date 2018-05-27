@@ -1,0 +1,81 @@
+.list-header {
+    background: $main-red;
+    border: 1px solid darken($light-red, 10%);
+    display: flex;
+    justify-content: space-between;
+    padding: $s-size $m-size;
+    color: #fff;
+    margin-top: $m-size;
+
+    &--income {
+        background: $main-green;
+        border: 1px solid darken($light-green, 10%);
+    }
+}
+
+.list-item {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid darken($light-red, 10%);
+    border-top: none;
+    background: $light-red;
+    color: $main-brown;
+    padding: $s-size;
+    text-decoration: none;
+    transition: background .3s ease;
+
+    &:hover {
+        background: darken($light-red, 5%);
+    }
+
+    &__description {
+        margin: 0;
+        word-break: break-all;
+    }
+
+    &__date {
+        font-size: 1.4rem;
+    }
+
+    &__amount {
+        margin: $s-size 0 0 0;
+        @media (min-width: $desktop-breakpoint) {
+            margin: 0;
+            padding-left: $s-size;
+        }
+    }
+
+    &--income {
+        background: $light-green;
+        border: 1px solid darken($light-green, 10%);
+
+        &:hover {
+            background: darken($light-green, 5%);
+        }
+    }
+
+    @media (min-width: $desktop-breakpoint) {
+        align-items: center;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    &--message {
+        align-items: center;
+        justify-content: center;
+        padding: $m-size;
+        &:hover {
+            background: $light-red;
+        }
+        &--income:hover {
+            background: $light-green;
+        }
+    }
+}
+
+.list-body {
+    margin-bottom: $m-size;
+    @media (min-width: $desktop-breakpoint) {
+        margin-bottom: $l-size;
+    }
+}
