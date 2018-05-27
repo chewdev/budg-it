@@ -20,7 +20,7 @@ exports[`should correctly render BudgItSummary with expenses and income 1`] = `
     <div
       className="page-header__sub-summary"
     >
-      <h3
+      <h4
         className="page-header__expenses"
       >
         Viewing 
@@ -37,8 +37,8 @@ exports[`should correctly render BudgItSummary with expenses and income 1`] = `
         >
           $124.85
         </span>
-      </h3>
-      <h3
+      </h4>
+      <h4
         className="page-header__incomes"
       >
         Viewing 
@@ -55,7 +55,7 @@ exports[`should correctly render BudgItSummary with expenses and income 1`] = `
         >
           $1,143.90
         </span>
-      </h3>
+      </h4>
     </div>
     <div
       className="page-header__sub-summary"
@@ -99,7 +99,7 @@ exports[`should correctly render BudgItSummary with expenses and no income 1`] =
     <div
       className="page-header__sub-summary"
     >
-      <h3
+      <h4
         className="page-header__expenses"
       >
         Viewing 
@@ -116,8 +116,8 @@ exports[`should correctly render BudgItSummary with expenses and no income 1`] =
         >
           $124.85
         </span>
-      </h3>
-      <h3
+      </h4>
+      <h4
         className="page-header__incomes"
       >
         Viewing 
@@ -134,7 +134,7 @@ exports[`should correctly render BudgItSummary with expenses and no income 1`] =
         >
           $0.00
         </span>
-      </h3>
+      </h4>
     </div>
     <div
       className="page-header__sub-summary"
@@ -178,7 +178,7 @@ exports[`should correctly render BudgItSummary with income and no expenses 1`] =
     <div
       className="page-header__sub-summary"
     >
-      <h3
+      <h4
         className="page-header__expenses"
       >
         Viewing 
@@ -195,8 +195,8 @@ exports[`should correctly render BudgItSummary with income and no expenses 1`] =
         >
           $0.00
         </span>
-      </h3>
-      <h3
+      </h4>
+      <h4
         className="page-header__incomes"
       >
         Viewing 
@@ -213,7 +213,7 @@ exports[`should correctly render BudgItSummary with income and no expenses 1`] =
         >
           $1,143.90
         </span>
-      </h3>
+      </h4>
     </div>
     <div
       className="page-header__sub-summary"
@@ -257,7 +257,7 @@ exports[`should correctly render BudgItSummary with no expenses and no income 1`
     <div
       className="page-header__sub-summary"
     >
-      <h3
+      <h4
         className="page-header__expenses"
       >
         Viewing 
@@ -274,8 +274,8 @@ exports[`should correctly render BudgItSummary with no expenses and no income 1`
         >
           $0.00
         </span>
-      </h3>
-      <h3
+      </h4>
+      <h4
         className="page-header__incomes"
       >
         Viewing 
@@ -292,7 +292,7 @@ exports[`should correctly render BudgItSummary with no expenses and no income 1`
         >
           $0.00
         </span>
-      </h3>
+      </h4>
     </div>
     <div
       className="page-header__sub-summary"

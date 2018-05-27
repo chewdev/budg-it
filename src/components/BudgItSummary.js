@@ -17,14 +17,14 @@ export const BudgItSummary = (props) => {
                 Budget: <span className={budgitTotal === 0 ? "page-header__brown" : budgitTotal > 0 ? "page-header__main-green" : "page-header__red"}>{numeral(budgitTotal).format('$0,0.00')}</span>
             </h2>
             <div className="page-header__sub-summary">
-                <h3 className="page-header__expenses">
+                <h4 className="page-header__expenses">
                     Viewing <span className="page-header__expense-number">{props.expenses.length}</span> {expenseWord}
                     totaling: <span className="page-header__expense-total">{numeral(selectTotal(props.expenses)).format('$0,0.00')}</span>
-                </h3>
-                <h3 className="page-header__incomes">
+                </h4>
+                <h4 className="page-header__incomes">
                     Viewing <span className="page-header__income-number">{props.income.length}</span> {incomeWord}
                     totaling: <span className="page-header__income-total">{numeral(selectTotal(props.income)).format('$0,0.00')}</span>
-                </h3>
+                </h4>
             </div>
             <div className="page-header__sub-summary">
                 <Link to='/create/expense' className="btn btn--expense">Add Expense</Link>

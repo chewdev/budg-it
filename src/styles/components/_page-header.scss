@@ -50,12 +50,30 @@
         font-weight: 300;
         padding: 0 $s-size;
         text-align: center;
+        width: 12rem;
+
+        @media (min-width: 25rem) {
+            width: 20rem;
+        }
+
+        @media (min-width: $desktop-breakpoint) {
+            width: 40rem;
+        }
     }
 
     &__incomes {
         font-weight: 300;
         padding: 0 $s-size;
         text-align: center;
+        width: 12rem;
+
+        @media (min-width: 25rem) {
+            width: 20rem;
+        }
+
+        @media (min-width: $desktop-breakpoint) {
+            width: 40rem;
+        }
     }
 
     &__title {
