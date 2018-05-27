@@ -81,7 +81,7 @@ exports[`should correctly render BudgItSummary with expenses and income 1`] = `
 
 exports[`should correctly render BudgItSummary with expenses and no income 1`] = `
 <div
-  className="page-header--bg-red"
+  className="page-header page-header--bg-red"
 >
   <div
     className="content-container"
