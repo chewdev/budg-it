@@ -6,8 +6,8 @@ import IncomeList from './IncomeList';
 
 const BudgItDashboardPage = () => (
 	<div>
-		<ExpenseListFilters />
 		<BudgItSummary />
+		<ExpenseListFilters />
 		<ExpenseList />
 		<IncomeList />
 

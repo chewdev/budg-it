@@ -1,0 +1,58 @@
+.page-header {
+    color: $main-brown;
+    padding: $m-size 0;
+    font-weight: 300;
+
+    &__expense-total {
+        color: red;
+    }
+
+    &__expense-number {
+        font-weight: 700;
+        color: red;
+    }
+
+    &__income-total {
+        color: $main-green;
+    }
+
+    &__income-number {
+        font-weight: 700;
+        color: $main-green;
+    }
+
+    &__brown {
+        color: $main-brown;
+    }
+    
+    &__main-green {
+        color: $main-green;
+    }
+
+    &__red {
+        color: red;
+    }
+
+    &__sub-summary {
+        display: flex;
+        justify-content: space-around;
+        margin: .5rem 0;
+    }
+
+    &__budgit {
+        margin: .5rem 0;
+        text-align: center;
+    }
+
+    &__expenses {
+        font-weight: 300;
+        padding: 0 $s-size;
+        text-align: center;
+    }
+
+    &__incomes {
+        font-weight: 300;
+        padding: 0 $s-size;
+        text-align: center;
+    }
+}

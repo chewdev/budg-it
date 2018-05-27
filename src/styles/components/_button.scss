@@ -1,0 +1,44 @@
+.btn {
+    background:lighten($main-green, 10%);
+    border: none;
+    border-radius: 3px;
+    color: darken($main-brown, 10%);
+    font-size: 2.0rem;
+    font-weight: 300;
+    padding: $s-size;
+    text-decoration: none;
+
+    &--logout {
+        background: none;
+        font-size: $m-size;
+        padding: 1.0rem;
+    }
+
+    &--expense {
+        background: red;
+        color: $main-lightgray;
+        font-size: 1.4rem;
+        line-height: 1;
+        margin: 0 1rem;
+        padding: 1rem;
+        text-align: center;
+
+        &:hover {
+            background: darken(red, 10%);
+        }
+    }
+
+    &--income {
+        background: $main-green;
+        color: $main-lightgray;
+        font-size: 1.4rem;
+        line-height: 1;
+        margin: 0 1rem;
+        padding: 1rem;
+        text-align: center;
+
+        &:hover {
+            background: darken($main-green, 10%);
+        }
+    }
+}

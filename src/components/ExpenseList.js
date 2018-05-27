@@ -5,12 +5,14 @@ import selectExpenses from '../selectors/expenses';
 
 export const ExpenseList = (props) => (
     <div>
-        <h1>Expenses</h1>
-        {!props.expenses.length ? (
-                <p>No expenses match your query. Add new expenses or change your query to view existing expenses</p>
-            ) : (
-                props.expenses.map((expense) => (<ExpenseListItem key={expense.id} {...expense}/>)) 
-            ) }
+        <div className="content-container">
+            <h1>Expenses</h1>
+            {!props.expenses.length ? (
+                    <p>No expenses match your query. Add new expenses or change your query to view existing expenses</p>
+                ) : (
+                    props.expenses.map((expense) => (<ExpenseListItem key={expense.id} {...expense}/>)) 
+                ) }
+        </div>
     </div>
 );
 

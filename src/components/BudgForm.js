@@ -79,7 +79,7 @@ export default class BudgForm extends React.Component {
                         isOutsideRange={() => false }
                     />
                     <textarea
-                        placeholder="Add a note for your budg (optional)"
+                        placeholder="Add a note (optional)"
                         value={this.state.note}
                         onChange={this.onNoteChange}
                     >
