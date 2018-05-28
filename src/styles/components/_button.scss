@@ -1,5 +1,5 @@
 .btn {
-    background:lighten($main-green, 10%);
+    background: $main-green;
     border: none;
     border-radius: 3px;
     color: darken($main-brown, 10%);
@@ -45,6 +45,22 @@
 
         &:hover { 
             background: darken($main-brown, 10%);
+        }
+    }
+
+    &--login {
+        &:hover {
+            background: lighten($main-green, 10%);
+        }
+    }
+
+    &--no-login {
+        margin-top: $s-size;
+        background: darken($main-brown, 15%);
+        color: lighten($main-green, 10%);
+
+        &:hover {
+            background: darken($main-brown, 20%);
         }
     }
 }

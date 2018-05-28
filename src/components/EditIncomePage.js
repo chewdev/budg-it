@@ -1,16 +1,26 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import BudgForm from './BudgForm';
-import { startEditIncome, startRemoveIncome } from '../actions/income';
+import { startEditIncome, startRemoveIncome, editIncome, removeIncome } from '../actions/income';
 
 export class EditIncomePage extends React.Component { 
 	onSubmit = (income) => {
-		this.props.startEditIncome(this.props.income.id, income);
-		this.props.history.push('/');
+		if (this.props.uid !== 'anon') {
+			this.props.startEditIncome(this.props.income.id, income);
+			this.props.history.push('/');
+		} else {
+			this.props.editIncome(this.props.income.id, income);
+			this.props.history.push('/dashboard');
+		}
 	};
 	onRemove = () => {
-		this.props.startRemoveIncome({ id: this.props.income.id });
-		this.props.history.push('/');
+		if (this.props.uid !== 'anon') {
+			this.props.startRemoveIncome({ id: this.props.income.id });
+			this.props.history.push('/');
+		} else {
+			this.props.removeIncome({ id: this.props.income.id });
+			this.props.history.push('/dashboard');
+		}
 	}
 	render() {
 		return (
@@ -38,13 +48,16 @@ export class EditIncomePage extends React.Component {
 
 const mapStateToProps = (state, props) => {
 	return {
-		income: state.income.find((income) => income.id === props.match.params.id)
+		income: state.income.find((income) => income.id === props.match.params.id),
+		uid: state.auth.uid
 	};
 };
 
 const mapDispatchToProps = (dispatch, props) => ({
 	startEditIncome: (id, income) => dispatch(startEditIncome(id, income)),
-	startRemoveIncome: (data) => dispatch(startRemoveIncome(data))
+	startRemoveIncome: (data) => dispatch(startRemoveIncome(data)),
+	editIncome: (id, income) => dispatch(editIncome(id, income)),
+	removeIncome: (data) => dispatch(removeIncome(data))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(EditIncomePage);

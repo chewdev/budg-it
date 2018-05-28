@@ -16,9 +16,14 @@ exports[`should correctly render LoginPage 1`] = `
       Don't wait to get your budget in order. The time to do it is now.
     </p>
     <button
-      className="btn"
+      className="btn btn--login"
     >
       Login with Google
+    </button>
+    <button
+      className="btn btn--no-login"
+    >
+      Continue without Login
     </button>
   </div>
 </div>

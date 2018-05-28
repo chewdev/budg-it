@@ -11,6 +11,12 @@ export const startLogin = () => {
     };
 };
 
+// allow users to use app without signing in
+export const loginNoUID = () => ({
+    type: 'LOGIN',
+    uid: 'anon'
+});
+
 export const logout = () => ({
     type: 'LOGOUT'
 });

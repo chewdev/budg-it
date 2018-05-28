@@ -15,7 +15,7 @@ exports[`should render BudgForm correctly 1`] = `
   />
   <input
     className="text-input"
-    maxlength="15"
+    maxLength="15"
     onChange={[Function]}
     placeholder="Amount"
     type="text"
@@ -128,7 +128,7 @@ exports[`should render BudgForm with expense data 1`] = `
   />
   <input
     className="text-input"
-    maxlength="15"
+    maxLength="15"
     onChange={[Function]}
     placeholder="Amount"
     type="text"
@@ -241,7 +241,7 @@ exports[`should render error for invalid form submission 1`] = `
   />
   <input
     className="text-input"
-    maxlength="15"
+    maxLength="15"
     onChange={[Function]}
     placeholder="Amount"
     type="text"
@@ -359,7 +359,7 @@ exports[`should render error for invalid form submission 2`] = `
   />
   <input
     className="text-input"
-    maxlength="15"
+    maxLength="15"
     onChange={[Function]}
     placeholder="Amount"
     type="text"

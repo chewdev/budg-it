@@ -68,7 +68,7 @@ export default class BudgForm extends React.Component {
                         type="text"
                         className="text-input"
                         placeholder="Amount"
-                        maxlength="15"
+                        maxLength="15"
                         value={this.state.amount}
                         onChange={this.onAmountChange}
                     />

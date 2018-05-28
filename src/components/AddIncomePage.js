@@ -1,12 +1,19 @@
 import React from 'react';
+import uuid from 'uuid';
 import BudgForm from './BudgForm';
 import { connect } from 'react-redux';
-import { startAddIncome } from '../actions/income';
+import { startAddIncome, addIncome } from '../actions/income';
 
 export class AddIncomePage extends React.Component {
 	onSubmit = (income) => {
-		this.props.startAddIncome(income);
-		this.props.history.push('/');
+		if (this.props.uid !== 'anon') {
+			this.props.startAddIncome(income);
+			this.props.history.push('/');
+		} else {
+			income.id = uuid();
+			this.props.addIncome(income);
+			this.props.history.push('/dashboard');
+		}
 	};
 	 render() { 
 		return (
@@ -27,6 +34,15 @@ export class AddIncomePage extends React.Component {
 	}
 }
 
-const mapDispatchToProps = (dispatch) => ({startAddIncome: (income) => dispatch(startAddIncome(income))});
+const mapStateToProps = (state) => {
+    return {
+        uid: state.auth.uid
+    };
+};
 
-export default connect(undefined, mapDispatchToProps)(AddIncomePage);
+const mapDispatchToProps = (dispatch) => ({
+	startAddIncome: (income) => dispatch(startAddIncome(income)),
+	addIncome: (income) => dispatch(addIncome(income))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(AddIncomePage);
