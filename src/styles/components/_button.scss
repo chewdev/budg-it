@@ -49,12 +49,14 @@
     }
 
     &--login {
+        width: 20rem;
         &:hover {
             background: lighten($main-green, 10%);
         }
     }
 
     &--no-login {
+        width: 20rem;
         margin-top: $s-size;
         background: darken($main-brown, 15%);
         color: lighten($main-green, 10%);
