@@ -65,4 +65,24 @@
             background: darken($main-brown, 20%);
         }
     }
+
+    &--remove-expenses {
+        width: 100%;
+        background: $main-red;
+        color: white;
+        &:hover {
+            background: #511;
+            color: red;
+        }
+    }
+
+    &--remove-incomes {
+        width: 100%;
+        background: $main-green;
+        color: white;
+        &:hover {
+            background: #151;
+            color: red;
+        }
+    }
 }

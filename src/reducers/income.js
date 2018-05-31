@@ -21,6 +21,8 @@ export default (state = incomeReducerDefaultState, action) => {
             });
         case 'SET_INCOMES':
             return action.incomes;
+        case 'REMOVE_ALL_INCOMES':
+            return [];
         default:
             return state;
     }

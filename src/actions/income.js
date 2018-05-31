@@ -87,3 +87,19 @@ export const startSetIncomes = () => {
         
     }
 }
+
+// REMOVE_ALL INCOMES
+export const removeAllIncomes = () => ({
+    type: 'REMOVE_ALL_INCOMES'
+});
+
+export const startRemoveAllIncomes = () => {
+    return (dispatch, getState) => {
+        const uid = getState().auth.uid;
+        return database.ref(`users/${uid}/incomes`)
+            .set({})
+            .then(() => {
+                dispatch(removeAllIncomes());
+            });
+    }
+}

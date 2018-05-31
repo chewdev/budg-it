@@ -88,3 +88,19 @@ export const startSetExpenses = () => {
     }
 }
 
+// REMOVE_ALL EXPENSES
+export const removeAllExpenses = () => ({
+    type: 'REMOVE_ALL'
+});
+
+export const startRemoveAllExpenses = () => {
+    return (dispatch, getState) => {
+        const uid = getState().auth.uid;
+        return database.ref(`users/${uid}/expenses`)
+            .set({})
+            .then(() => {
+                dispatch(removeAllExpenses());
+            });
+    }
+}
+
