@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import ExpenseListItem from './ExpenseListItem';
 import selectExpenses from '../selectors/expenses';
-import { startRemoveAllExpenses, removeAllExpenses } from '../actions/expenses';
+import { startRemoveAllExpenses, removeAllExpenses, removeExpense, startRemoveExpense, removeExpensesChosen } from '../actions/expenses';
 
 export class ExpenseList extends React.Component { 
     onRemoveAll = () => {
@@ -10,6 +10,16 @@ export class ExpenseList extends React.Component {
 			this.props.startRemoveAllExpenses();
 		} else {
 			this.props.removeAllExpenses();
+		}
+    };
+
+    onRemoveAllVis = () => {
+        if (this.props.uid !== 'anon') {
+			this.props.expenses.forEach((expense) => startRemoveExpense({ id: expense.id }));
+		} else {
+            const ids = this.props.expenses.map((expense) => expense.id);
+            this.props.removeExpensesChosen(ids);
+			//this.props.expenses.forEach((expense) => removeExpense({ id: expense.id }));
 		}
     };
 
@@ -28,7 +38,7 @@ export class ExpenseList extends React.Component {
                     ) : (
                         this.props.expenses.map((expense) => (<ExpenseListItem key={expense.id} {...expense}/>)) 
                     ) }
-                { !this.props.expenses.length ? null : (<button className="btn btn--remove-expenses" onClick={this.onRemoveAll}>Remove All Expenses</button>) }
+                { !this.props.expenses.length ? null : (<button className="btn btn--remove-expenses" onClick={this.onRemoveAllVis}>Remove All Expenses</button>) }
             </div>
         )};
 };
@@ -42,7 +52,10 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => ({
 	startRemoveAllExpenses: () => dispatch(startRemoveAllExpenses()),
-	removeAllExpenses: () => dispatch(removeAllExpenses())
+    removeAllExpenses: () => dispatch(removeAllExpenses()),
+    startRemoveExpense: (id) => dispatch(startRemoveExpense(id)),
+    removeExpense: (id) => dispatch(removeExpense(id)),
+    removeExpensesChosen: (ids) => dispatch(removeExpensesChosen(ids))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ExpenseList);

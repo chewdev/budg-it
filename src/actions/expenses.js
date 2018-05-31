@@ -46,6 +46,11 @@ export const startRemoveExpense = ({ id } = {}) => {
     };
 };
 
+export const removeExpensesChosen = ( ids = [] ) => ({
+    type: 'REMOVE_EXPENSES_CHOSEN',
+    ids
+});
+
 // EDIT_EXPENSE
 export const editExpense = ( id,  updates ) => ({
     type: 'EDIT_EXPENSE',
