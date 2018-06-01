@@ -3,26 +3,17 @@ import { connect } from 'react-redux';
 import ExpenseListItem from './ExpenseListItem';
 import ConfirmRemoveModal from './ConfirmRemoveModal';
 import selectExpenses from '../selectors/expenses';
-import { startRemoveAllExpenses, removeAllExpenses, removeExpense, startRemoveExpense, removeExpensesChosen, startRemoveExpensesChosen } from '../actions/expenses';
+import { removeExpensesChosen, startRemoveExpensesChosen } from '../actions/expenses';
 import { changeModalState } from '../actions/modal';
 
 export class ExpenseList extends React.Component { 
-    onRemoveAll = () => {
-        if (this.props.uid !== 'anon') {
-			this.props.startRemoveAllExpenses();
-		} else {
-			this.props.removeAllExpenses();
-		}
-    };
 
     onRemoveAllVis = () => {
         const ids = this.props.expenses.map((expense) => expense.id);
         if (this.props.uid !== 'anon') {
             this.props.startRemoveExpensesChosen(ids);
-			//this.props.expenses.forEach((expense) => startRemoveExpense({ id: expense.id }));
 		} else {
             this.props.removeExpensesChosen(ids);
-			//this.props.expenses.forEach((expense) => removeExpense({ id: expense.id }));
         }
         this.props.changeModalState();
     };
@@ -67,10 +58,6 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-	startRemoveAllExpenses: () => dispatch(startRemoveAllExpenses()),
-    removeAllExpenses: () => dispatch(removeAllExpenses()),
-    startRemoveExpense: (id) => dispatch(startRemoveExpense(id)),
-    removeExpense: (id) => dispatch(removeExpense(id)),
     removeExpensesChosen: (ids) => dispatch(removeExpensesChosen(ids)),
     startRemoveExpensesChosen: (ids) => dispatch(startRemoveExpensesChosen(ids)),
     changeModalState: () => dispatch(changeModalState())

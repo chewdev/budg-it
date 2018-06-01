@@ -46,6 +46,22 @@ export const startRemoveIncome = ({ id } = {}) => {
     };
 };
 
+export const removeIncomesChosen = ( ids = [] ) => ({
+    type: 'REMOVE_INCOMES_CHOSEN',
+    ids
+});
+
+export const startRemoveIncomesChosen = ( ids = [] ) => {
+    return (dispatch, getState) => {
+        const uid = getState().auth.uid;
+        ids.forEach((id) => {
+            return database.ref(`users/${uid}/incomes/${id}`).remove().then(() => {
+            dispatch(removeIncome({ id }));
+            });
+        });
+    };
+};
+
 // EDIT_INCOME
 export const editIncome = ( id,  updates ) => ({
     type: 'EDIT_INCOME',
@@ -88,18 +104,18 @@ export const startSetIncomes = () => {
     }
 }
 
-// REMOVE_ALL INCOMES
-export const removeAllIncomes = () => ({
-    type: 'REMOVE_ALL_INCOMES'
-});
+// // REMOVE_ALL INCOMES
+// export const removeAllIncomes = () => ({
+//     type: 'REMOVE_ALL_INCOMES'
+// });
 
-export const startRemoveAllIncomes = () => {
-    return (dispatch, getState) => {
-        const uid = getState().auth.uid;
-        return database.ref(`users/${uid}/incomes`)
-            .set({})
-            .then(() => {
-                dispatch(removeAllIncomes());
-            });
-    }
-}
+// export const startRemoveAllIncomes = () => {
+//     return (dispatch, getState) => {
+//         const uid = getState().auth.uid;
+//         return database.ref(`users/${uid}/incomes`)
+//             .set({})
+//             .then(() => {
+//                 dispatch(removeAllIncomes());
+//             });
+//     }
+// }

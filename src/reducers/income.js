@@ -8,6 +8,11 @@ export default (state = incomeReducerDefaultState, action) => {
             return [...state, action.income];
         case 'REMOVE_INCOME':
             return state.filter((income) => income.id !== action.id);
+        case 'REMOVE_INCOMES_CHOSEN':
+            action.ids.forEach((id) => {
+            state = state.filter((income) => income.id !== id);
+            });
+            return state;
         case 'EDIT_INCOME':
             return state.map((income) => {
                 if (income.id === action.id) {
@@ -21,8 +26,8 @@ export default (state = incomeReducerDefaultState, action) => {
             });
         case 'SET_INCOMES':
             return action.incomes;
-        case 'REMOVE_ALL_INCOMES':
-            return [];
+        // case 'REMOVE_ALL_INCOMES':
+        //     return [];
         default:
             return state;
     }

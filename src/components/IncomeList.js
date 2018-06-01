@@ -1,16 +1,25 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import IncomeListItem from './IncomeListItem';
+import ConfirmRemoveModal from './ConfirmRemoveModal';
 import selectIncome from '../selectors/income';
-import { startRemoveAllIncomes, removeAllIncomes } from '../actions/income';
+import { removeIncomesChosen, startRemoveIncomesChosen } from '../actions/income';
+import { changeModalStateIncome } from '../actions/modal';
 
-export class IncomeList extends React.Component { 
-    onRemoveAllIncomes = () => {
+export class IncomeList extends React.Component {
+
+    onRemoveAllVisIncomes = () => {
+        const ids = this.props.income.map((incomeItem) => incomeItem.id);
         if (this.props.uid !== 'anon') {
-			this.props.startRemoveAllIncomes();
+			this.props.startRemoveIncomesChosen(ids);
 		} else {
-			this.props.removeAllIncomes();
-		}
+			this.props.removeIncomesChosen(ids);
+        }
+        this.props.changeModalStateIncome();
+    };
+
+    handleChangeModalIncome = () => {
+        this.props.changeModalStateIncome();
     };
 
     render(props) {
@@ -29,7 +38,13 @@ export class IncomeList extends React.Component {
                         ) : (
                         this.props.income.map((income) => (<IncomeListItem key={income.id} {...income}/>)) 
                     ) }
-                     { !this.props.income.length ? null : (<button className="btn btn--income btn--remove-incomes" onClick={this.onRemoveAllIncomes}>Remove All Incomes</button>) }
+                     { !this.props.income.length ? null : (<button className="btn btn--income btn--remove-incomes" onClick={this.handleChangeModalIncome}>Remove Visible Incomes</button>) }
+                    <ConfirmRemoveModal 
+                        isOpen={this.props.isOpenIncome}
+                        onConfirmRemoveAllVis={this.onRemoveAllVisIncomes}
+                        handleCloseModal={this.handleChangeModalIncome}
+                        itemType={"incomes"}
+				    />
                 </div>
             </div>
         )
@@ -39,13 +54,15 @@ export class IncomeList extends React.Component {
 const mapStateToProps = (state) => {
     return {
         income: selectIncome(state.income, state.filters),
-        uid: state.auth.uid
+        uid: state.auth.uid,
+        isOpenIncome: state.modal.isOpenIncome
     };
 };
 
 const mapDispatchToProps = (dispatch) => ({
-	startRemoveAllIncomes: () => dispatch(startRemoveAllIncomes()),
-	removeAllIncomes: () => dispatch(removeAllIncomes())
+	startRemoveIncomesChosen: (ids) => dispatch(startRemoveIncomesChosen(ids)),
+    removeIncomesChosen: (ids) => dispatch(removeIncomesChosen(ids)),
+    changeModalStateIncome: () => dispatch(changeModalStateIncome())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(IncomeList);

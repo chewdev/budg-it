@@ -1,7 +1,5 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import Modal from 'react-modal';
-import { startRemoveExpensesChosen, removeExpensesChosen } from '../actions/expenses';
 
 const ConfirmRemoveModal = (props) => (
 		<Modal 
