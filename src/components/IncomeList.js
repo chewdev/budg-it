@@ -29,7 +29,7 @@ export class IncomeList extends React.Component {
                         ) : (
                         this.props.income.map((income) => (<IncomeListItem key={income.id} {...income}/>)) 
                     ) }
-                     { !this.props.income.length ? null : (<button className="btn btn--remove-incomes" onClick={this.onRemoveAllIncomes}>Remove All Incomes</button>) }
+                     { !this.props.income.length ? null : (<button className="btn btn--income btn--remove-incomes" onClick={this.onRemoveAllIncomes}>Remove All Incomes</button>) }
                 </div>
             </div>
         )

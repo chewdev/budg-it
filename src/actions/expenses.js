@@ -51,6 +51,17 @@ export const removeExpensesChosen = ( ids = [] ) => ({
     ids
 });
 
+export const startRemoveExpensesChosen = ( ids = [] ) => {
+    return (dispatch, getState) => {
+        const uid = getState().auth.uid;
+        ids.forEach((id) => {
+            return database.ref(`users/${uid}/expenses/${id}`).remove().then(() => {
+            dispatch(removeExpense({ id }));
+            });
+        })
+    };
+};
+
 // EDIT_EXPENSE
 export const editExpense = ( id,  updates ) => ({
     type: 'EDIT_EXPENSE',

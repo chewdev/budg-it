@@ -7,6 +7,10 @@
     font-weight: 300;
     padding: $s-size;
     text-decoration: none;
+    
+    &:focus {
+        outline: none;
+    }
 
     &--logout {
         background: none;
@@ -68,21 +72,32 @@
 
     &--remove-expenses {
         width: 100%;
-        background: $main-red;
-        color: white;
-        &:hover {
-            background: #511;
-            color: red;
-        }
+        font-size: 2.0rem;
     }
 
     &--remove-incomes {
         width: 100%;
-        background: $main-green;
-        color: white;
+        font-size: 2.0rem;
+    }
+
+    &--confirm-remove {
+        background: $main-red;
+        color: $main-brown;
+        width: 20rem;
+        margin-bottom: $s-size;
+
         &:hover {
-            background: #151;
-            color: red;
+            background: red;
+        }
+    }
+
+    &--cancel-remove {
+        background: $main-brown;
+        color: lighten($main-green, 20%);
+        width: 20rem;
+
+        &:hover {
+            background: darken($main-brown, 5%);
         }
     }
 }

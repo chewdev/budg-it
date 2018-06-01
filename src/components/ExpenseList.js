@@ -1,8 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import ExpenseListItem from './ExpenseListItem';
+import ConfirmRemoveModal from './ConfirmRemoveModal';
 import selectExpenses from '../selectors/expenses';
-import { startRemoveAllExpenses, removeAllExpenses, removeExpense, startRemoveExpense, removeExpensesChosen } from '../actions/expenses';
+import { startRemoveAllExpenses, removeAllExpenses, removeExpense, startRemoveExpense, removeExpensesChosen, startRemoveExpensesChosen } from '../actions/expenses';
+import { changeModalState } from '../actions/modal';
 
 export class ExpenseList extends React.Component { 
     onRemoveAll = () => {
@@ -14,13 +16,19 @@ export class ExpenseList extends React.Component {
     };
 
     onRemoveAllVis = () => {
+        const ids = this.props.expenses.map((expense) => expense.id);
         if (this.props.uid !== 'anon') {
-			this.props.expenses.forEach((expense) => startRemoveExpense({ id: expense.id }));
+            this.props.startRemoveExpensesChosen(ids);
+			//this.props.expenses.forEach((expense) => startRemoveExpense({ id: expense.id }));
 		} else {
-            const ids = this.props.expenses.map((expense) => expense.id);
             this.props.removeExpensesChosen(ids);
 			//this.props.expenses.forEach((expense) => removeExpense({ id: expense.id }));
-		}
+        }
+        this.props.changeModalState();
+    };
+
+    handleChangeModal = () => {
+        this.props.changeModalState();
     };
 
     render(props) { 
@@ -38,7 +46,14 @@ export class ExpenseList extends React.Component {
                     ) : (
                         this.props.expenses.map((expense) => (<ExpenseListItem key={expense.id} {...expense}/>)) 
                     ) }
-                { !this.props.expenses.length ? null : (<button className="btn btn--remove-expenses" onClick={this.onRemoveAllVis}>Remove All Expenses</button>) }
+                { !this.props.expenses.length ? null : (<button className="btn btn--expense btn--remove-expenses" onClick={this.handleChangeModal}>Remove Visible Expenses</button>) }
+                <ConfirmRemoveModal 
+                    isOpen={this.props.isOpen}
+                    itemType={"expenses"}
+                    expenses={this.props.expenses}
+                    onConfirmRemoveAllVis={this.onRemoveAllVis}
+					handleCloseModal={this.handleChangeModal} 
+				/>
             </div>
         )};
 };
@@ -46,7 +61,8 @@ export class ExpenseList extends React.Component {
 const mapStateToProps = (state) => {
     return {
         expenses: selectExpenses(state.expenses, state.filters),
-        uid: state.auth.uid
+        uid: state.auth.uid,
+        isOpen: state.modal.isOpen
     };
 };
 
@@ -55,7 +71,9 @@ const mapDispatchToProps = (dispatch) => ({
     removeAllExpenses: () => dispatch(removeAllExpenses()),
     startRemoveExpense: (id) => dispatch(startRemoveExpense(id)),
     removeExpense: (id) => dispatch(removeExpense(id)),
-    removeExpensesChosen: (ids) => dispatch(removeExpensesChosen(ids))
+    removeExpensesChosen: (ids) => dispatch(removeExpensesChosen(ids)),
+    startRemoveExpensesChosen: (ids) => dispatch(startRemoveExpensesChosen(ids)),
+    changeModalState: () => dispatch(changeModalState())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ExpenseList);
