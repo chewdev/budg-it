@@ -2,8 +2,10 @@ import React from 'react';
 import { connect } from 'react-redux';
 import ExpenseListItem from './ExpenseListItem';
 import ConfirmRemoveModal from './ConfirmRemoveModal';
+import PageListItem from './PageListItem';
 import selectExpenses from '../selectors/expenses';
 import { removeExpensesChosen, startRemoveExpensesChosen } from '../actions/expenses';
+import { setExpensePage } from '../actions/filters';
 import { changeModalState } from '../actions/modal';
 
 export class ExpenseList extends React.Component { 
@@ -22,7 +24,24 @@ export class ExpenseList extends React.Component {
         this.props.changeModalState();
     };
 
-    render(props) { 
+    handleSetExpensePage = (page) => {
+        this.props.setExpensePage(page);
+    }
+
+    setCurrentExpenses = () => {
+        return this.props.expenses.slice(10 * this.props.expensePage - 10, 10 * this.props.expensePage);
+    }
+
+    setPageElementList = () => {
+        const pageElementList = [];
+        const totalExpensePages = Math.ceil(this.props.expenses.length / 10);
+        for (let i = 1; i <= totalExpensePages; i++) {
+            pageElementList.push(<PageListItem isExpenseList={true} pageNumber={i} currPage={this.props.expensePage} setExpensePage={this.handleSetExpensePage} key={i} />);
+        }
+        return pageElementList;
+    }
+
+    render(props) {
         return (
             <div className="content-container">
                 <div className="list-header">
@@ -35,7 +54,7 @@ export class ExpenseList extends React.Component {
                             <span>No expenses match query</span>
                         </div>
                     ) : (
-                        this.props.expenses.map((expense) => (<ExpenseListItem key={expense.id} {...expense}/>)) 
+                        this.setCurrentExpenses().map((expense) => (<ExpenseListItem key={expense.id} {...expense}/>)) 
                     ) }
                 { !this.props.expenses.length ? null : (<button className="btn btn--expense btn--remove-expenses" onClick={this.handleChangeModal}>Remove Visible Expenses</button>) }
                 <ConfirmRemoveModal 
@@ -45,6 +64,9 @@ export class ExpenseList extends React.Component {
                     onConfirmRemoveAllVis={this.onRemoveAllVis}
 					handleCloseModal={this.handleChangeModal} 
 				/>
+                <div className="page-list">
+                    {this.setPageElementList()}
+                </div>
             </div>
         )};
 };
@@ -53,14 +75,16 @@ const mapStateToProps = (state) => {
     return {
         expenses: selectExpenses(state.expenses, state.filters),
         uid: state.auth.uid,
-        isOpen: state.modal.isOpen
+        isOpen: state.modal.isOpen,
+        expensePage: state.filters.expensePage 
     };
 };
 
 const mapDispatchToProps = (dispatch) => ({
     removeExpensesChosen: (ids) => dispatch(removeExpensesChosen(ids)),
     startRemoveExpensesChosen: (ids) => dispatch(startRemoveExpensesChosen(ids)),
-    changeModalState: () => dispatch(changeModalState())
+    changeModalState: () => dispatch(changeModalState()),
+    setExpensePage: (num) => dispatch(setExpensePage(num))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ExpenseList);

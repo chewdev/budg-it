@@ -27,3 +27,15 @@ export const setEndDate = ( endDate ) => ({
     type: 'SET_END_DATE',
     endDate
 });
+
+//SET_EXPENSE_PAGE
+export const setExpensePage = ( expensePage ) => ({
+    type: 'SET_EXPENSE_PAGE',
+    expensePage
+});
+
+//SET_EXPENSE_PAGE
+export const setIncomePage = ( incomePage ) => ({
+    type: 'SET_INCOME_PAGE',
+    incomePage
+});

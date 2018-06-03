@@ -5,7 +5,11 @@ const filtersReducerDefaultState = {
     text: '',
     sortBy: 'date',
     startDate: moment().startOf('month'),
-    endDate: moment().endOf('month')
+    endDate: moment().endOf('month'),
+    totalExpensePages: 0,
+    totalIncomePages: 0,
+    expensePage: 1,
+    incomePage: 1
 };
 
 export default (state = filtersReducerDefaultState, action) => {
@@ -30,6 +34,16 @@ export default (state = filtersReducerDefaultState, action) => {
                 ...state,
                 endDate: action.endDate
             };
+        case 'SET_EXPENSE_PAGE':
+            return {
+                ...state,
+                expensePage: action.expensePage
+            };
+        case 'SET_INCOME_PAGE':
+            return {
+                ...state,
+                incomePage: action.incomePage
+            }
         default:
             return state;
     }
