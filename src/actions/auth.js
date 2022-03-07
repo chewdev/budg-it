@@ -1,28 +1,28 @@
-import { firebase, googleAuthProvider } from '../firebase/firebase';
+import { signInWithPopup, provider, auth } from "../firebase/firebase";
 
 export const login = (uid) => ({
-    type: 'LOGIN',
-    uid
+  type: "LOGIN",
+  uid,
 });
 
 export const startLogin = () => {
-    return () => {
-        return firebase.auth().signInWithPopup(googleAuthProvider);
-    };
+  return () => {
+    return signInWithPopup(auth, provider);
+  };
 };
 
 // allow users to use app without signing in
 export const loginNoUID = () => ({
-    type: 'LOGIN',
-    uid: 'anon'
+  type: "LOGIN",
+  uid: "anon",
 });
 
 export const logout = () => ({
-    type: 'LOGOUT'
+  type: "LOGOUT",
 });
 
 export const startLogout = () => {
-    return () => {
-        return firebase.auth().signOut();
-    };
+  return () => {
+    return auth.signOut();
+  };
 };

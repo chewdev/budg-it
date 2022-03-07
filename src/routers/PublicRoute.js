@@ -1,23 +1,10 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import { Route, Redirect } from 'react-router-dom';
+import React from "react";
+import { useSelector } from "react-redux";
+import { Navigate, Outlet } from "react-router-dom";
 
-export const PublicRoute = ({
-    isAuth, 
-    component: Component,
-    ...rest
-}) => (
-    <Route {...rest} component={(props) => (
-        isAuth ? (
-            <Redirect to="/dashboard" />
-        ) : (
-            <Component {...props} />
-        )
-    )} />
-);
+export const PublicRoute = () => {
+  const isAuth = useSelector((state) => !!state.auth.uid);
+  return isAuth ? <Navigate replace to="/dashboard" /> : <Outlet />;
+};
 
-const mapStateToProps = (state) => ({
-    isAuth: !!state.auth.uid
-});
-
-export default connect(mapStateToProps)(PublicRoute);
+export default PublicRoute;
